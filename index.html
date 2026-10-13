@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Video Studio Pro</title>
+    <style>
+        body { background-color: #0b1426; color: #ffffff; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 6px; display: flex; justify-content: center; align-items: center; min-height: 100vh; box-sizing: border-box; }
+        #welcome-screen { width: 100%; max-width: 400px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 40px 20px; background: #111c32; border: 2px solid #1a66ff; border-radius: 24px; box-shadow: 0 15px 35px rgba(0,0,0,0.6); }
+        .logo-icon { font-size: 60px; background: linear-gradient(135deg, #1a66ff, #2ecc71); width: 90px; height: 90px; display: flex; align-items: center; justify-content: center; border-radius: 20px; box-shadow: 0 8px 20px rgba(26, 102, 255, 0.4); }
+        .welcome-title { font-size: 26px; font-weight: bold; color: #2ecc71; margin: 0; }
+        .welcome-desc { font-size: 14px; color: #94a3b8; margin: 0; line-height: 1.6; }
+        .enter-btn { background: #1a66ff; color: white; border: none; padding: 16px; width: 100%; border-radius: 12px; font-size: 16px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 15px rgba(26, 102, 255, 0.3); }
+        
+        #studio-screen { width: 100%; max-width: 430px; display: none; flex-direction: column; gap: 8px; }
+        .google-ads-box { background-color: #162238; border: 2px dashed #3b82f6; color: #3b82f6; text-align: center; padding: 15px 6px; border-radius: 8px; font-size: 13px; font-weight: bold; letter-spacing: 1px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .studio-header { color: #2ecc71; text-align: center; margin: 0; font-size: 18px; }
+        
+        .control-panel-card { background-color: #111c32; border: 1px solid #1e293b; border-radius: 8px; padding: 8px; display: flex; flex-direction: column; gap: 6px; }
+        .action-blue-label, .action-purple-label { color: white; padding: 8px; border-radius: 6px; font-weight: bold; text-align: center; display: block; cursor: pointer; font-size: 13px; }
+        .action-blue-label { background-color: #1a66ff; }
+        .action-purple-label { background-color: #8b5cf6; }
+        
+        .grid-options { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .option-group { display: flex; flex-direction: column; gap: 3px; font-size: 11px; color: #cbd5e1; }
+        .option-group select, .option-group input[type="text"], .option-group input[type="range"] { background-color: #162238; color: white; border: 1px solid #3b82f6; padding: 4px 6px; border-radius: 5px; font-size: 12px; outline: none; }
+        .option-group input[type="color"] { background-color: transparent; border: none; width: 100%; height: 26px; cursor: pointer; }
+        
+        .ratio-selector { display: flex; gap: 6px; justify-content: space-between; }
+        .ratio-btn { flex: 1; background: #162238; border: 1px solid #3b82f6; color: white; padding: 6px 2px; border-radius: 5px; cursor: pointer; font-size: 10px; font-weight: bold; text-align: center; }
+        .ratio-btn.active { background: #1a66ff; border-color: #ffffff; }
+
+        .preview-wrapper { width: 100%; display: flex; justify-content: center; align-items: center; background-color: #020617; border-radius: 10px; padding: 4px; box-sizing: border-box; border: 1px solid #1e293b; }
+        .preview-zone { width: 100%; height: 210px; display: flex; justify-content: center; align-items: center; overflow: hidden; position: relative; }
+        #video-canvas { width: 100%; height: 100%; display: block; background: #000000; }
+        
+        .export-green-btn { background-color: #10b981; color: white; border: none; padding: 12px; border-radius: 8px; font-size: 15px; font-weight: bold; width: 100%; cursor: pointer; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2); }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Welcome Screen -->
+    <div id="welcome-screen">
+        <div class="logo-icon">🎬</div>
+        <h1 class="welcome-title">AI Video Studio Pro</h1>
+        <p class="welcome-desc">Welcome to the advanced video production app. Create stunning slideshows with transitions, customs aspect ratios and export directly.</p>
+        <button class="enter-btn" id="btn-enter-trigger">Enter Platinum Studio 🚀</button>
+    </div>
+
+    <!-- 2. Studio Screen -->
+    <div id="studio-screen">
+        <div class="google-ads-box">★ GOOGLE ADSENSE BANNER (TOP SMART AD) ★</div>
+        
+        <h2 class="studio-header">AI Video Studio Pro</h2>
+
+        <div class="control-panel-card">
+            <div class="grid-options">
+                <div>
+                    <label for="img-input" class="action-blue-label">📸 Add Photos</label>
+                    <input type="file" id="img-input" style="display: none;" multiple accept="image/*">
+                </div>
+                <div id="counter-output" style="color: #94a3b8; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold;">0 Photos loaded</div>
+            </div>
+        </div>
+
+        <div class="control-panel-card">
+            <div class="grid-options">
+                <div class="option-group">
+                    <label>Music Track</label>
+                    <label for="audio-input" class="action-purple-label" style="padding: 5px; font-size: 11px;">🎵 Add Audio</label>
+                    <input type="file" id="audio-input" style="display: none;" accept="audio/*">
+                </div>
+                <div class="option-group">
+                    <label>Text Color</label>
+                    <input type="color" id="text-color-input" value="#ffffff">
+                </div>
+            </div>
+            <div class="option-group">
+                <input type="text" id="video-text-input" placeholder="Type text here to show on video...">
+            </div>
+        </div>
+
+        <div class="control-panel-card">
+            <div class="grid-options">
+                <div class="option-group">
+                    <label>Aspect Ratio</label>
+                    <div class="ratio-selector">
+                        <button class="ratio-btn active" data-ratio="16:9">📺 16:9</button>
+                        <button class="ratio-btn" data-ratio="9:16">📱 9:16</button>
+                        <button class="ratio-btn" data-ratio="1:1">⬛ 1:1</button>
+                    </div>
+                </div>
+                <div class="grid-options">
+                    <div class="option-group">
+                        <label>Speed (<span id="duration-val">2</span>s)</label>
+                        <input type="range" id="duration-slider" min="1" max="5" value="2" step="0.5" style="width:100%;">
+                    </div>
+                    <div class="option-group">
+                        <label>Filter</label>
+                        <select id="color-filter">
+                            <option value="none">None</option>
+                            <option value="grayscale">Grayscale</option>
+                            <option value="sepia">Sepia</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="preview-wrapper">
+            <div class="preview-zone">
+                <canvas id="video-canvas"></canvas>
+            </div>
+        </div>
+
+        <button class="export-green-btn" id="export-btn" type="button">🎬 Save & Export Video (MP4)</button>
+        
+        <div class="google-ads-box">★ GOOGLE ADSENSE BANNER (BOTTOM SMART AD) ★</div>
+    </div>
+
+    <!-- استدعاء ملف الجافا سكريبت الخارجي المعزول لمنع تعليق الغلاف -->
+    <script src="script.js"></script>
+</body>
+</html>
