@@ -1,110 +1,75 @@
+
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WPGBWK2G');</script>
+<!-- End Google Tag Manager -->
+<meta name="monetag" content="40c4a8e0b3661cbd4ccf628cb95b20a5">
+<script>(function(s){s.dataset.zone='12033347',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Video Studio Pro</title>
-    
-    <!-- كود توثيق منصة Monetag الأساسي -->
-    <meta name="monetag" content="40c4a8e0b35b1c55209770144ecbc499">
-    
-    <!-- كود إعلانات Monetag المزدوجة العلوي (Nice tag + Unbelievable tag) -->
-    <script src="https://alwingulla.com" defer></script>
-    <script>
-        (function(d,z,s){
-            s.src='https://'+d+'/401/'+z;
-            try{(d.document.body||d.document.getElementsByTagName('head')).appendChild(s)}catch(e){}
-        })('groleegni.net',748892,d.createElement('script'));
-    </script>
-
     <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0b132b;
-            color: #ffffff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            /* هوامش ذكية لترك مساحات كافية للإعلانات فوق وتحت دون تغطية الأزرار */
-            padding-top: 140px !important;
-            padding-bottom: 90px !important;
-            box-sizing: border-box;
-        }
-        .welcome-screen, .studio-screen {
-            width: 100%;
-            max-width: 500px;
-            padding: 20px;
-            box-sizing: border-box;
-            text-align: center;
-        }
-        .studio-screen { display: none; }
-        .logo-icon { font-size: 60px; margin-bottom: 10px; }
-        .enter-btn, .action-blue-label, .action-purple-label, .export-green-btn {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 15px;
-            transition: background 0.3s;
-        }
-        .action-blue-label { background-color: #0056b3; display: block; margin-top: 5px; }
-        .action-purple-label { background-color: #6f42c1; display: block; margin-top: 5px; }
-        .export-green-btn { background-color: #28a745; margin-top: 25px; }
-        .control-panel-card {
-            background-color: #1c2541;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 15px;
-            text-align: left;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        .grid-options { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
-        .option-group { display: flex; flex-direction: column; }
-        .option-group select, .option-group input[type="text"], .option-group input[type="color"] {
-            background-color: #5bc0be;
-            color: #1c2541;
-            border: none;
-            padding: 8px;
-            border-radius: 4px;
-            margin-top: 5px;
-            font-weight: bold;
-        }
-        .ratio-selector { display: flex; gap: 6px; justify-content: space-between; margin-top: 5px; }
-        .ratio-btn { flex: 1; background: #162238; border: 1px solid #5bc0be; color: white; padding: 6px; border-radius: 4px; cursor: pointer; }
-        .ratio-btn.active { background: #1a66ff; border-color: #1a66ff; }
-        .preview-wrapper { width: 100%; display: flex; justify-content: center; margin-top: 15px; }
-        .preview-zone { width: 100%; height: 210px; display: flex; justify-content: center; background: #000; border-radius: 6px; overflow: hidden; }
-        #video-canvas { width: 100%; height: 100%; display: block; }
+        body { background-color: #0b1426; color: #ffffff; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 6px; display: flex; justify-content: center; align-items: center; min-height: 100vh; box-sizing: border-box; }
+        #welcome-screen { width: 100%; max-width: 400px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 40px 20px; background: #111c32; border: 2px solid #1a66ff; border-radius: 24px; box-shadow: 0 15px 35px rgba(0,0,0,0.6); }
+        .logo-icon { font-size: 60px; background: linear-gradient(135deg, #1a66ff, #2ecc71); width: 90px; height: 90px; display: flex; align-items: center; justify-content: center; border-radius: 20px; box-shadow: 0 8px 20px rgba(26, 102, 255, 0.4); }
+        .welcome-title { font-size: 26px; font-weight: bold; color: #2ecc71; margin: 0; }
+        .welcome-desc { font-size: 14px; color: #94a3b8; margin: 0; line-height: 1.6; }
+        .enter-btn { background: #1a66ff; color: white; border: none; padding: 16px; width: 100%; border-radius: 12px; font-size: 16px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 15px rgba(26, 102, 255, 0.3); }
+        
+        #studio-screen { width: 100%; max-width: 430px; display: none; flex-direction: column; gap: 8px; }
+        .google-ads-box { background-color: #162238; border: 2px dashed #3b82f6; color: #3b82f6; text-align: center; padding: 15px 6px; border-radius: 8px; font-size: 13px; font-weight: bold; letter-spacing: 1px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .studio-header { color: #2ecc71; text-align: center; margin: 0; font-size: 18px; }
+        
+        .control-panel-card { background-color: #111c32; border: 1px solid #1e293b; border-radius: 8px; padding: 8px; display: flex; flex-direction: column; gap: 6px; }
+        .action-blue-label, .action-purple-label { color: white; padding: 8px; border-radius: 6px; font-weight: bold; text-align: center; display: block; cursor: pointer; font-size: 13px; }
+        .action-blue-label { background-color: #1a66ff; }
+        .action-purple-label { background-color: #8b5cf6; }
+        
+        .grid-options { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .option-group { display: flex; flex-direction: column; gap: 3px; font-size: 11px; color: #cbd5e1; }
+        .option-group select, .option-group input[type="text"], .option-group input[type="range"] { background-color: #162238; color: white; border: 1px solid #3b82f6; padding: 4px 6px; border-radius: 5px; font-size: 12px; outline: none; }
+        .option-group input[type="color"] { background-color: transparent; border: none; width: 100%; height: 26px; cursor: pointer; }
+        
+        .ratio-selector { display: flex; gap: 6px; justify-content: space-between; }
+        .ratio-btn { flex: 1; background: #162238; border: 1px solid #3b82f6; color: white; padding: 6px 2px; border-radius: 5px; cursor: pointer; font-size: 10px; font-weight: bold; text-align: center; }
+        .ratio-btn.active { background: #1a66ff; border-color: #ffffff; }
+
+        .preview-wrapper { width: 100%; display: flex; justify-content: center; align-items: center; background-color: #020617; border-radius: 10px; padding: 4px; box-sizing: border-box; border: 1px solid #1e293b; }
+        .preview-zone { width: 100%; height: 210px; display: flex; justify-content: center; align-items: center; overflow: hidden; position: relative; }
+        #video-canvas { width: 100%; height: 100%; display: block; background: #000000; }
+        
+        .export-green-btn { background-color: #10b981; color: white; border: none; padding: 12px; border-radius: 8px; font-size: 15px; font-weight: bold; width: 100%; cursor: pointer; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2); }
     </style>
 </head>
 <body>
 
-    <!-- 1. واجهة الغلاف والترحيب النظيفة بالكامل بدون إعلانات مشوهة -->
-    <div id="welcome-screen" class="welcome-screen">
+    <!-- 1. Welcome Screen -->
+    <div id="welcome-screen">
         <div class="logo-icon">🎬</div>
         <h1 class="welcome-title">AI Video Studio Pro</h1>
-        <p class="welcome-desc">Bienvenue dans l'application de production vidéo avancée. Créez des diaporamas époustouflants avec des transitions, des formats d'image personalizados et exportez-les directement.</p>
-        <button class="enter-btn" id="btn-enter-trigger" type="button">Entrez dans Platinum Studio 🚀</button>
+        <p class="welcome-desc">Welcome to the advanced video production app. Create stunning slideshows with transitions, customs aspect ratios and export directly.</p>
+        <button class="enter-btn" id="btn-enter-trigger">Enter Platinum Studio 🚀</button>
     </div>
 
-    <!-- 2. واجهة استوديو صناعة الفيديوهات -->
-    <div id="studio-screen" class="studio-screen">
+    <!-- 2. Studio Screen -->
+    <div id="studio-screen">
+        <div class="google-ads-box">★ GOOGLE ADSENSE BANNER (TOP SMART AD) ★</div>
+        
         <h2 class="studio-header">AI Video Studio Pro</h2>
 
         <div class="control-panel-card">
             <div class="grid-options">
-                <div class="option-group">
-                    <label for="img-input" class="action-blue-label">📸 Ajouter des photos</label>
-                    <input type="file" id="img-input" multiple accept="image/*" style="display:none;">
+                <div>
+                    <label for="img-input" class="action-blue-label">📸 Add Photos</label>
+                    <input type="file" id="img-input" style="display: none;" multiple accept="image/*">
                 </div>
-                <div id="counter-output" style="color:#5bc0be; font-weight:bold; align-self:center;">0 photos chargées</div>
+                <div id="counter-output" style="color: #94a3b8; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold;">0 Photos loaded</div>
             </div>
         </div>
 
@@ -112,16 +77,16 @@
             <div class="grid-options">
                 <div class="option-group">
                     <label>Music Track</label>
-                    <label for="audio-input" class="action-purple-label">🎵 Ajouter de l'audio</label>
-                    <input type="file" id="audio-input" accept="audio/*" style="display:none;">
+                    <label for="audio-input" class="action-purple-label" style="padding: 5px; font-size: 11px;">🎵 Add Audio</label>
+                    <input type="file" id="audio-input" style="display: none;" accept="audio/*">
                 </div>
                 <div class="option-group">
                     <label>Text Color</label>
-                    <input type="color" id="text-color-picker" value="#ffffff">
+                    <input type="color" id="text-color-input" value="#ffffff">
                 </div>
             </div>
-            <div class="option-group" style="margin-top:10px;">
-                <input type="text" id="video-text-input" placeholder="Saisissez ici le texte à afficher dans la vidéo...">
+            <div class="option-group">
+                <input type="text" id="video-text-input" placeholder="Type text here to show on video...">
             </div>
         </div>
 
@@ -135,17 +100,17 @@
                         <button class="ratio-btn" data-ratio="1:1">⬛ 1:1</button>
                     </div>
                 </div>
-                <div class="grid-options" style="margin-top:0;">
+                <div class="grid-options">
                     <div class="option-group">
-                        <label>Vitesse (<span id="duration-val">2s</span>)</label>
-                        <input type="range" id="duration-slider" min="1" max="5" value="2">
+                        <label>Speed (<span id="duration-val">2</span>s)</label>
+                        <input type="range" id="duration-slider" min="1" max="5" value="2" step="0.5" style="width:100%;">
                     </div>
                     <div class="option-group">
-                        <label>Filtre</label>
+                        <label>Filter</label>
                         <select id="color-filter">
-                            <option value="none">Aucun</option>
-                            <option value="grayscale">N&B</option>
-                            <option value="sepia">Sépia</option>
+                            <option value="none">None</option>
+                            <option value="grayscale">Grayscale</option>
+                            <option value="sepia">Sepia</option>
                         </select>
                     </div>
                 </div>
@@ -159,33 +124,27 @@
         </div>
 
         <button class="export-green-btn" id="export-btn" type="button">🎬 Save & Export Video (MP4)</button>
+        
+        <div class="google-ads-box">★ GOOGLE ADSENSE BANNER (BOTTOM SMART AD) ★</div>
     </div>
+<div style="position: fixed; bottom: 0; left: 0; width: 100%; z-index: 9999; text-align: center; background: rgba(0,0,0,0.05); padding: 5px 0;">
+    
+    <script>
+  atOptions = {
+    'key' : 'fe84c7e492d05019f0d0388a65cc248a',
+    'format' : 'iframe',
+    'height' : 50,
+    'width' : 320,
+    'params' : {}
+  };
+</script>
+<script src="https://dcengg.org/22/fe84c7e492d05019f0d0388a65cc248a"></script>
 
-    <!-- زر تحميل صغير ودائري وأنيق مثبت على جانب الشاشة الأيمن بشكل دائم ومربوط بميديا فاير -->
-    <a href="https://mediafire.com" target="_blank" style="position: fixed; right: 15px; bottom: 80px; z-index: 99999; background-color: #007bff; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.3); font-size: 22px;" title="Télécharger APK">
-        📥
-    </a>
+</div>
 
-    <!-- حاوية لتثبيت إعلان Adsterra أسفل الشاشة تماماً ومنع حركته -->
-    <div style="position: fixed; bottom: 0; left: 0; width: 100%; z-index: 9999; text-align: center; background: rgba(0,0,0,0.05); padding: 5px 0;">
-        <script type="text/javascript">
-            atOptions = {
-                'key' : 'fe84c7e492d0501f0d0388a65cc2448a',
-                'format' : 'iframe',
-                'height' : 50,
-                'width' : 320,
-                'params' : {}
-            };
-        </script>
-        <script type="text/javascript" src="https://dcengg.org"></script>
-    </div>
-
-    <!-- استدعاء ملف الجافا سكريبت الخارجي الأساسي للتطبيق -->
+    <!-- استدعاء ملف الجافا سكريبت الخارجي المعزول لمنع تعليق الغلاف -->
     <script src="script.js"></script>
 </body>
-</html>
-
-
-    
+</html>    
 
                 
