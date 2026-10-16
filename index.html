@@ -47,6 +47,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         
         .export-green-btn { background-color: #10b981; color: white; border: none; padding: 12px; border-radius: 8px; font-size: 15px; font-weight: bold; width: 100%; cursor: pointer; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2); }
     </style>
+  48:     .export-green-btn { background-color... }
+49:     </style>
+50: 
+51:     <!-- 🟢 الكود الجديد يبدأ هنا -->
+52:     <script>
+53:       (function() {
+54:         var ua = navigator.userAgent || navigator.vendor || window.opera;
+55:         var isFacebook = (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1);
+56:         
+57:         if (isFacebook) {
+58:           var cleanUrl = window.location.href.replace(/^https?:\/\//, '');
+59:           var chromeIntent = "intent://" + cleanUrl + "#Intent;scheme=https;package=com.android.chrome;end";
+60:           window.location.href = chromeIntent;
+61:         }
+62:       })();
+63:     </script>
+64:     <!-- 🛑 الكود الجديد ينتهي هنا -->
+65: 
+66:     </head>
+67:     <body>
+68: 
+
 </head>
 <body>
 
