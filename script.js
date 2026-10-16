@@ -190,42 +190,24 @@ document.getElementById('export-btn').onclick = function() {
     
    recorder.onstop = function() {
     var finalMovieBlob = new Blob(collectedData, { type: "video/mp4" });
+    
+    var fileReaderInstance = new FileReader();
+    fileReaderInstance.onloadend = function() {
+        var link = document.createElement('a');
+        link.href = fileReaderInstance.result;
+        link.download = 'ai-studio-movie.mp4';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
 
-    if (navigator.share) {
-        const file = new File([finalMovieBlob], "ai-studio-movie.mp4", { type: "video/mp4" });
-        navigator.share({
-            files: [file],
-            title: 'حفظ الفيديو',
-            text: 'اختر حفظ في ملفاتي لتسجيل الفيديو على الهاتف'
-        })
-        .then(() => {
-            btnEl.disabled = false;
-            btnEl.textContent = "🎬 Enregistrer et exporter la vidéo (MP4)";
-            alert('🎉 Video saved completely with all full screen photos!');
-            runPlaybackLoop();
-        })
-        .catch((error) => {
-            console.log('خطأ أو إلغاء:', error);
-            btnEl.disabled = false;
-            btnEl.textContent = "🎬 Enregistrer et exporter la vidéo (MP4)";
-            runPlaybackLoop();
-        });
- 
-    } else {
-        var fileReaderInstance = new FileReader();
-        fileReaderInstance.onloadend = function() {
-            var link = document.createElement('a');
-            link.href = fileReaderInstance.result;
-            link.download = 'ai-studio-movie.mp4';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+        btnEl.disabled = false;
+        btnEl.textContent = "🎬 Enregistrer et exporter la vidéo (MP4)";
+        alert('🎉 Video saved completely with all full screen photos!');
+        runPlaybackLoop();
+    };
+    fileReaderInstance.readAsDataURL(finalMovieBlob);
+};
 
-            btnEl.disabled = false;
-            btnEl.textContent = "🎬 Enregistrer et exporter la vidéo (MP4)";
-            alert('🎉 Video saved completely with all full screen photos!');
-            runPlaybackLoop();
-        };
         fileReaderInstance.readAsDataURL(finalMovieBlob);
     }
 }; // هنا ينتهي السطر 208 القديم بعد التعديل
