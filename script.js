@@ -208,9 +208,7 @@ document.getElementById('export-btn').onclick = function() {
     fileReaderInstance.readAsDataURL(finalMovieBlob);
 };
 
-        fileReaderInstance.readAsDataURL(finalMovieBlob);
-    }
-}; // هنا ينتهي السطر 208 القديم بعد التعديل
+        
 
 
     recorder.start();
