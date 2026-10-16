@@ -190,6 +190,30 @@ document.getElementById('export-btn').onclick = function() {
     
     recorder.onstop = function() {
         var finalMovieBlob = new Blob(collectedData, { type: 'video/mp4' });
+        recorder.onstop = function() {
+    var finalMovieBlob = new Blob(collectedData, { type: "video/mp4" });
+
+    // 🌟 ضع الكود الجديد الذي عطيتهولك هنا مباشرة 🌟
+    if (navigator.share) {
+        const file = new File([finalMovieBlob], "ai-studio-movie.mp4", { type: "video/mp4" });
+        navigator.share({
+            files: [file],
+            title: 'حفظ الفيديو',
+            text: 'اختر حفظ في ملفاتي لتسجيل الفيديو على الهاتف'
+        })
+        .then(() => {
+            btnEl.disabled = false;
+            btnEl.textContent = "🎬 Enregistrer et exporter la vidéo (MP4)";
+            alert('🎉 Video saved completely with all full screen photos!');
+            runPlaybackLoop();
+        })
+        .catch((error) => {
+            console.log('خطأ أو إلغاء:', error);
+            btnEl.disabled = false;
+            btnEl.textContent = "🎬 Enregistrer et exporter la vidéo (MP4)";
+            runPlaybackLoop();
+        });
+    } else {
         var fileReaderInstance = new FileReader();
         fileReaderInstance.onloadend = function() {
             var link = document.createElement('a');
@@ -198,14 +222,16 @@ document.getElementById('export-btn').onclick = function() {
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
-            
+
             btnEl.disabled = false;
-            btnEl.textContent = "🎬 Save & Export Video (MP4)";
+            btnEl.textContent = "🎬 Enregistrer et exporter la vidéo (MP4)";
             alert('🎉 Video saved completely with all full screen photos!');
-            runPlaybackLoop(); 
+            runPlaybackLoop();
         };
         fileReaderInstance.readAsDataURL(finalMovieBlob);
-    };
+    }
+}; // هنا ينتهي السطر 208 القديم بعد التعديل
+
 
     recorder.start();
     
